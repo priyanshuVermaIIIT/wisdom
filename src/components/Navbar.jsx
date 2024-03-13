@@ -1,7 +1,7 @@
 import React from "react";
-import "./navbar.css"
+import "./navbar.css";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
       <nav className="flex justify-between">
@@ -21,15 +21,36 @@ const Navbar = () => {
           />
         </div>
         <ul className="flex justify-end mt-5 ">
-          <li className="flex flex-col justify-start items-center mx-8">
+          <li
+            className={`flex flex-col justify-start items-center mx-8 ${
+              props.navLink === 0 ? "border-b-2 border-black" : ""
+            } `}
+            onClick={() => {
+              props.setnavLink(0);
+            }}
+          >
             <img src="house-fill-custom.svg" alt="" width="25px" />
             <a href="/home">Home</a>
           </li>
-          <li className="flex flex-col justify-start items-center mx-8">
+          <li
+            className={`flex flex-col justify-start items-center mx-8 ${
+              props.navLink === 1 ? "border-b-2 border-black" : ""
+            }`}
+            onClick={() => {
+              props.setnavLink(1);
+            }}
+          >
             <img src="chat.svg" alt="" width="25px" />
             <a href="/quoteShelf">QuoteShelf</a>
           </li>
-          <li className="flex flex-col justify-start items-center mx-8">
+          <li
+            className={`flex flex-col justify-start items-center mx-8 ${
+              props.navLink === 2 ? "border-b-2 border-black" : ""
+            }`}
+            onClick={() => {
+              props.setnavLink(2);
+            }}
+          >
             <img src="browse.svg" alt="" width="25px" />
             <a href="/browse">Browse</a>
           </li>

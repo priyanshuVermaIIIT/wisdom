@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 
-function CustomQuoteCard({ quote, author }) {
-  const [likes, setLikes] = useState(0);
-
-  const handleLike = () => {
-    setLikes(likes + 1);
-  };
-
+const Card = (props) => {
+  // console.log(props.tags);
   return (
-    <div className=" rounded-lg m-2">
-      <hr className="w-auto h-[2px] bg-amber-900 mt-2" />
-      
-        <div className="flex  p-4 justify-evenly">
-          <p className="text-sm font-medium  justify-end">{quote}</p>
-          <button onClick={handleLike} className="float-right">
-            <img src="like.svg" alt="like" className=" w-[1.5%] absolute mx-10  " />
-          </button>
-        </div>
-        <div className="flex justify-around">
-          <p className="text-sm font-extrabold text-amber-900">- {author}</p>
-          <div className="flex items-end ">
-            <span className="text-sm ">
-              {likes} {likes === 1 ? "Like" : "Likes"}
-            </span>
-          </div>
-        </div>
+    <div className="m-2 ">
+      <div className=" w-[78vw] mx-auto  p-6  ">
+        <blockquote className="text-xl italic text-gray-800">
+          {props.quote}
+        </blockquote>
+        <cite className="block text-sm mt-4 text-black font-bold ">
+          -{props.author}
+        </cite>
+        <span className="block text-sm mt-4 text-gray-600 font-semibold">
+          Tags -[{props.tags.join(" ")}]
+        </span>
+        {/* <button
+          onClick={() => {
+            props.quoteShelf.push({
+              quote: props.quote,
+              author: props.author,
+              tag: props.tags,
+            });
+          }}
+        >
+          add to quoteShelf
+        </button> */}
       </div>
-   
+    </div>
   );
-}
+};
 
-export default CustomQuoteCard;
+export default Card;
